@@ -2,7 +2,7 @@
 
 This repository contains my configuration to tweak the kobo e-reader firmware to my liking. To update kobopatch, you can download the binaries [here](https://github.com/pgaskin/kobopatch/releases/latest).
 
-<p align="center"><img width="400" src="https://github.com/obynio/kobopatch-config/assets/2095991/d419c825-df3f-4837-9196-cb5f07674df0" alt="kobo screenshot"></p>
+<img width="500" src="https://github.com/obynio/kobopatch-config/assets/2095991/d419c825-df3f-4837-9196-cb5f07674df0" alt="kobo screenshot">
 
 ## How to use
 
