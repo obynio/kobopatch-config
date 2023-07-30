@@ -1,4 +1,5 @@
 # kobopatch-config
+> Patch it, check it, quick – upgrade it
 
 This repository contains my configuration to tweak the kobo e-reader firmware to my liking. To update kobopatch, you can download the binaries [here](https://github.com/pgaskin/kobopatch/releases/latest).
 
