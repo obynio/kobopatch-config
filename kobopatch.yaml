@@ -1,0 +1,72 @@
+## Works with kobopatch v0.15.0 and later.
+## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
+version: 4.37.21586
+in: src/kobo-update-4.37.21586.zip
+out: out/KoboRoot.tgz
+log: out/log.txt
+
+patchFormat: kobopatch
+
+patches:
+  src/nickel.yaml: usr/local/Kobo/nickel
+  src/libadobe.so.yaml: usr/local/Kobo/libadobe.so
+  src/libnickel.so.1.0.0.yaml: usr/local/Kobo/libnickel.so.1.0.0
+  src/librmsdk.so.1.0.0.yaml: usr/local/Kobo/librmsdk.so.1.0.0
+
+## You can put lines in the following section to override the enabled state of patches.
+## The indentation matters! Each override should be indented by 4 spaces. Add to the 
+## section below. This section can be copy and pasted into newer patch versions to
+## keep your selections.
+##
+## Example of how it should look:
+## overrides:
+##   src/nickel.yaml:
+##     Custom synopsis/details line spacing: yes
+##     Whatever the yaml is called: no
+##   src/libadobe.so.yaml:
+##     You get the idea: yes
+overrides:
+  src/nickel.yaml:
+    Remove footer (row3) and increase cover size on new home screen: yes
+    Remove forgot pin button from lock screen: yes
+    New home screen subtitle custom font: yes
+    Increase Book Details synopsis area: yes
+  src/libadobe.so.yaml:
+  src/libnickel.so.1.0.0.yaml:
+    Custom kepub default margins: yes
+    Always show confirmation dialog before upgrading: yes
+    Disable all tutorial dialogs: yes
+    Never show Kobo Plus, wishlist, and points SmartLinks: yes
+    Remove beta features not supported text: yes
+    Remove line from bottom tab bar: yes
+    FeatureSettings - BookSpecificStats: yes
+    FeatureSettings - MyWords: yes
+    FeatureSettings - ExportHighlights: yes
+  src/librmsdk.so.1.0.0.yaml:
+
+files:
+  # Fonts
+  #fonts/Literata-BoldItalic.otf: mnt/onboard/fonts/Literata-BoldItalic.otf
+  #fonts/Literata-Bold.otf: mnt/onboard/fonts/Literata-Bold.otf
+  #fonts/Literata-Italic.otf: mnt/onboard/fonts/Literata-Italic.otf
+  #fonts/Literata-Regular.otf: mnt/onboard/fonts/Literata-Regular.otf
+  #fonts/MinionPro-BoldIt.otf: mnt/onboard/fonts/MinionPro-BoldIt.otf
+  #fonts/MinionPro-Bold.otf: mnt/onboard/fonts/MinionPro-Bold.otf
+  #fonts/MinionPro-It.otf: mnt/onboard/fonts/MinionPro-It.otf
+  #fonts/MinionPro-Regular.otf: mnt/onboard/fonts/MinionPro-Regular.otf
+  #fonts/OpenSans-BoldItalic.ttf: mnt/onboard/fonts/OpenSans-BoldItalic.ttf
+  #fonts/OpenSans-Bold.ttf: mnt/onboard/fonts/OpenSans-Bold.ttf
+  #fonts/OpenSans-Italic.ttf: mnt/onboard/fonts/OpenSans-Italic.ttf
+  #fonts/OpenSans-Regular.ttf: mnt/onboard/fonts/OpenSans-Regular.ttf
+  #fonts/Bookerly-BoldItalic.ttf: mnt/onboard/fonts/Bookerly-BoldItalic.ttf
+  #fonts/Bookerly-Bold.ttf: mnt/onboard/fonts/Bookerly-Bold.ttf
+  #fonts/Bookerly-Italic.ttf: mnt/onboard/fonts/Bookerly-Italic.ttf
+  #fonts/Bookerly-Regular.ttf: mnt/onboard/fonts/Bookerly-Regular.ttf
+
+  # NickelMenu
+  src/nm/config: mnt/onboard/.adds/nm/config
+  src/nm/menu.png: mnt/onboard/.adds/nm/.menu.png
+  pkg/nickelmenu-749483b/libnm.so: usr/local/Kobo/imageformats/libnm.so
+
+  # NickelSeries
+  pkg/nickelseries-a06f1ac/libns.so: usr/local/Kobo/imageformats/libns.so
