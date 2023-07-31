@@ -63,6 +63,9 @@ files:
   #fonts/Bookerly-Italic.ttf: mnt/onboard/fonts/Bookerly-Italic.ttf
   #fonts/Bookerly-Regular.ttf: mnt/onboard/fonts/Bookerly-Regular.ttf
 
+  # Kobo Config
+  src/kobo/affiliate.conf: mnt/onboard/.kobo/affiliate.conf
+
   # NickelMenu
   src/nm/config: mnt/onboard/.adds/nm/config
   src/nm/menu.png: mnt/onboard/.adds/nm/.menu.png
