@@ -1,6 +1,6 @@
 #!/bin/bash
 cd "$(dirname "$0")"
-rm -f "out/KoboRoot.tgz"
+mkdir -p out && rm -f "out/KoboRoot.tgz"
 case `uname -s` in
     Darwin)
 	    case `uname -m` in
