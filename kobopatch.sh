@@ -16,8 +16,17 @@ case `uname -s` in
             *)
                 echo "Unsupported architecture"
 	esac
-        ;;
+    ;;
+    Linux)
+	    case `uname -m` in
+	        x86_64)
+                ./bin/kobopatch-linux-64bit
+		        ;;
+            *)
+                echo "Unsupported architecture"
+	esac
+    ;;
     *)
         echo "Unsupported system"
-	;;
+	    ;;
 esac
