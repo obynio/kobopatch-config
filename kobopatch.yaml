@@ -1,7 +1,7 @@
 ## Works with kobopatch v0.15.0 and later.
 ## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
-version: 4.37.21586
-in: src/kobo-update-4.37.21586.zip
+version: 4.38.21908
+in: src/kobo-update-4.38.21908.zip
 out: out/KoboRoot.tgz
 log: out/log.txt
 
@@ -64,11 +64,11 @@ files:
   #fonts/Bookerly-Regular.ttf: mnt/onboard/fonts/Bookerly-Regular.ttf
 
   # Kobo Config
-  src/kobo/affiliate.conf: mnt/onboard/.kobo/affiliate.conf
+  config/kobo/affiliate.conf: mnt/onboard/.kobo/affiliate.conf
 
   # NickelMenu
-  src/nm/config: mnt/onboard/.adds/nm/config
-  src/nm/menu.png: mnt/onboard/.adds/nm/.menu.png
+  config/nickel/config: mnt/onboard/.adds/nm/config
+  config/nickel/menu.png: mnt/onboard/.adds/nm/.menu.png
   pkg/nickelmenu-749483b/libnm.so: usr/local/Kobo/imageformats/libnm.so
 
   # NickelSeries
