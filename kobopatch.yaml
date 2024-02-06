@@ -80,8 +80,8 @@ files:
   pkg/tailscale-373914f/binaries/iptables/lib/libip4tc.so.0.1.0: lib/libip4tc.so.0.1.0
   pkg/tailscale-373914f/binaries/iptables/lib/libip6tc.so.0.1.0: lib/libip6tc.so.0.1.0
   pkg/tailscale-373914f/binaries/iptables/lib/libxtables.so.10.0.0: lib/libxtables.so.10.0.0
-  src/tailscale/tailscale: mnt/onboard/tailscale/tailscale
-  src/tailscale/tailscaled: mnt/onboard/tailscale/tailscaled
+  src/tailscale/tailscale: mnt/onboard/.adds/tailscale/tailscale
+  src/tailscale/tailscaled: mnt/onboard/.adds/tailscale/tailscaled
   pkg/tailscale-373914f/scripts/boot.sh: usr/local/tailscale/boot.sh
   pkg/tailscale-373914f/scripts/on-boot.sh: usr/local/tailscale/on-boot.sh
   pkg/tailscale-373914f/scripts/on-wlan-down.sh: usr/local/tailscale/on-wlan-down.sh
@@ -93,7 +93,7 @@ symlinks:
   lib/libip4tc.so.0.1.0: lib/libip4tc.so.0
   lib/libip6tc.so.0.1.0: lib/libip6tc.so.0
   lib/libxtables.so.10.0.0: lib/libxtables.so.10
-  mnt/onboard/tailscale/tailscale: usr/bin/tailscale
-  mnt/onboard/tailscale/tailscaled: usr/bin/tailscaled
+  mnt/onboard/.adds/tailscale/tailscale: usr/bin/tailscale
+  mnt/onboard/.adds/tailscale/tailscaled: usr/bin/tailscaled
 
   # mnt/onboard/.adds/nm/config: usr/local/confiture
