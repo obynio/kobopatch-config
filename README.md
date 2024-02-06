@@ -23,6 +23,7 @@ On top of the firmware tweaks, the image also contains these mods:
 
 ## Dropbear
 
+* [My E-Reader Setup](https://blog.videah.net/my-e-reader-setup/)
 * [Setup SSH on Kobo](https://www.robelix.com/posts/43-rsync-for-the-Kobo.html)
 * [KoboSSH](https://github.com/Ewpratten/KoboSSH)
 
