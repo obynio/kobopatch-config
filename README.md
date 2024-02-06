@@ -18,4 +18,5 @@ This repository contains my configuration to tweak the kobo e-reader firmware to
 On top of the firmware tweaks, the image also contains these mods:
 
 * [NickelMenu](https://github.com/pgaskin/NickelMenu) which provides a customizable power user menu to the kobo, greatly ehancing the experience.
-*  [NickelSeries](https://github.com/pgaskin/kobo-mods/tree/master/NickelSeries) which scans automatically for calibre series on sideloaded KEPUB and EPUB books.
+* [NickelSeries](https://github.com/pgaskin/kobo-mods/tree/master/NickelSeries) which scans automatically for calibre series on sideloaded KEPUB and EPUB books.
+* [KoboTailscale](https://github.com/videah/kobo-tailscale/tree/master) which connects the kobo to my tailscale mesh network

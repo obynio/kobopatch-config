@@ -73,3 +73,27 @@ files:
 
   # NickelSeries
   pkg/nickelseries-a06f1ac/libns.so: usr/local/Kobo/imageformats/libns.so
+
+  # Tailscale
+  pkg/tailscale-373914f/modules/tun.ko: lib/modules/tailscale/kernel/drivers/net/tun.ko
+  pkg/tailscale-373914f/binaries/iptables/sbin/xtables-multi: sbin/xtables-multi
+  pkg/tailscale-373914f/binaries/iptables/lib/libip4tc.so.0.1.0: lib/libip4tc.so.0.1.0
+  pkg/tailscale-373914f/binaries/iptables/lib/libip6tc.so.0.1.0: lib/libip6tc.so.0.1.0
+  pkg/tailscale-373914f/binaries/iptables/lib/libxtables.so.10.0.0: lib/libxtables.so.10.0.0
+  src/tailscale/tailscale: mnt/onboard/tailscale/tailscale
+  src/tailscale/tailscaled: mnt/onboard/tailscale/tailscaled
+  pkg/tailscale-373914f/scripts/boot.sh: usr/local/tailscale/boot.sh
+  pkg/tailscale-373914f/scripts/on-boot.sh: usr/local/tailscale/on-boot.sh
+  pkg/tailscale-373914f/scripts/on-wlan-down.sh: usr/local/tailscale/on-wlan-down.sh
+  pkg/tailscale-373914f/scripts/on-wlan-up.sh: usr/local/tailscale/on-wlan-up.sh
+  pkg/tailscale-373914f/rules/98-tailscale.rules: etc/udev/rules.d/98-tailscale.rules
+
+symlinks:
+  sbin/xtables-multi: sbin/iptables
+  lib/libip4tc.so.0.1.0: lib/libip4tc.so.0
+  lib/libip6tc.so.0.1.0: lib/libip6tc.so.0
+  lib/libxtables.so.10.0.0: lib/libxtables.so.10
+  mnt/onboard/tailscale/tailscale: usr/bin/tailscale
+  mnt/onboard/tailscale/tailscaled: usr/bin/tailscaled
+
+  # mnt/onboard/.adds/nm/config: usr/local/confiture

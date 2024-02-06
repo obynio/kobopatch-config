@@ -1,11 +1,21 @@
 #!/bin/bash
+export TAILSCALE_VERSION=1.58.2
+
 cd "$(dirname "$0")"
+if [ ! -f src/tailscale-${TAILSCALE_VERSION}-arm.tgz ]; then
+    echo "Downloading tailscale_${TAILSCALE_VERSION}_arm.tgz from pkgs.tailscale.com ..."
+    wget https://pkgs.tailscale.com/stable/tailscale_${TAILSCALE_VERSION}_arm.tgz -O src/tailscale-${TAILSCALE_VERSION}-arm.tgz
+    tar -xvf src/tailscale-${TAILSCALE_VERSION}-arm.tgz -C src
+    rm -f "src/tailscale"
+    mv src/tailscale_${TAILSCALE_VERSION}_arm src/tailscale
+fi
+
 mkdir -p out && rm -f "out/KoboRoot.tgz"
 case `uname -s` in
     Darwin)
 	    case `uname -m` in
 	        x86_64)
-	        ./bin/kobopatch-darwin-64bit
+	            ./bin/kobopatch-darwin-64bit
 		        ;;
             arm*)
                 ./bin/kobopatch-darwin-arm
