@@ -2,4 +2,4 @@ log.txt
 KoboRoot.tgz
 kobo*-update-*.zip
 tailscale-*.tgz
-src/tailscale-*
+src/tailscale

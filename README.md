@@ -21,6 +21,30 @@ On top of the firmware tweaks, the image also contains these mods:
 * [NickelSeries](https://github.com/pgaskin/kobo-mods/tree/master/NickelSeries) which scans automatically for calibre series on sideloaded KEPUB and EPUB books.
 * [KoboTailscale](https://github.com/videah/kobo-tailscale/tree/master) which connects the kobo to my tailscale mesh network
 
-## Links
+## Dropbear
 
-* https://www.robelix.com/posts/43-rsync-for-the-Kobo.html
+* [Setup SSH on Kobo](https://www.robelix.com/posts/43-rsync-for-the-Kobo.html)
+* [KoboSSH](https://github.com/Ewpratten/KoboSSH)
+
+Compile Dropbear with the following options
+
+```
+$ ./configure CC="arm-kobo-linux-gnueabihf"-gcc LD="arm-kobo-linux-gnueabihf"-ld \
+            --host=arm-kobo-linux-gnueabihf \
+            --disable-zlib \
+            --disable-zlib \
+            --disable-wtmp \
+            --disable-lastlog \
+            --disable-syslog \
+            --disable-utmpx \
+            --disable-utmp \
+            --disable-wtmpx \
+            --disable-loginfunc \
+            --disable-pututxline \
+            --disable-pututline \
+            --enable-bundled-libtom \
+            --disable-pam
+
+$ make clean
+$ make PROGRAMS="dropbear"
+```
