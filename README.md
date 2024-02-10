@@ -1,7 +1,7 @@
 # kobopatch
 > Patch it, check it, quick – upgrade it
 
-This repository contains my configuration to tweak the kobo e-reader firmware to my liking. To update kobopatch, you can download the binaries [here](https://github.com/pgaskin/kobopatch/releases/latest).
+Hey fellow space cowboy. You're probably here because you want to remove all this ugly adware from your kobo and get a clean kobo experience ? Fear no more. This repository contains my configuration to tweak the kobo e-reader firmware to my liking. To update kobopatch, you can download the binaries [here](https://github.com/pgaskin/kobopatch/releases/latest).
 
 <img width="500" src="https://github.com/obynio/kobopatch-config/assets/2095991/d419c825-df3f-4837-9196-cb5f07674df0" alt="kobo screenshot">
 
