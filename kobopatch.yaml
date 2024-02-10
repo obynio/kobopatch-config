@@ -76,10 +76,10 @@ files:
 
   # Tailscale
   pkg/tailscale-373914f/modules/tun.ko: lib/modules/tailscale/kernel/drivers/net/tun.ko
-  pkg/tailscale-373914f/binaries/iptables/sbin/xtables-multi: sbin/xtables-multi
-  pkg/tailscale-373914f/binaries/iptables/lib/libip4tc.so.0.1.0: lib/libip4tc.so.0.1.0
-  pkg/tailscale-373914f/binaries/iptables/lib/libip6tc.so.0.1.0: lib/libip6tc.so.0.1.0
-  pkg/tailscale-373914f/binaries/iptables/lib/libxtables.so.10.0.0: lib/libxtables.so.10.0.0
+  pkg/tailscale-373914f/bin/iptables/sbin/xtables-multi: sbin/xtables-multi
+  pkg/tailscale-373914f/bin/iptables/lib/libip4tc.so.0.1.0: lib/libip4tc.so.0.1.0
+  pkg/tailscale-373914f/bin/iptables/lib/libip6tc.so.0.1.0: lib/libip6tc.so.0.1.0
+  pkg/tailscale-373914f/bin/iptables/lib/libxtables.so.10.0.0: lib/libxtables.so.10.0.0
   src/tailscale/tailscale: mnt/onboard/.adds/tailscale/tailscale
   src/tailscale/tailscaled: mnt/onboard/.adds/tailscale/tailscaled
   pkg/tailscale-373914f/scripts/boot.sh: usr/local/tailscale/boot.sh
@@ -87,6 +87,12 @@ files:
   pkg/tailscale-373914f/scripts/on-wlan-down.sh: usr/local/tailscale/on-wlan-down.sh
   pkg/tailscale-373914f/scripts/on-wlan-up.sh: usr/local/tailscale/on-wlan-up.sh
   pkg/tailscale-373914f/rules/98-tailscale.rules: etc/udev/rules.d/98-tailscale.rules
+
+  # Dropbear
+  pkg/dropbear-aa37404/bin/dropbear: usr/bin/dropbear
+  pkg/dropbear-aa37404/scripts/boot.sh: usr/local/bin/boot.sh
+  pkg/dropbear-aa37404/scripts/on-boot.sh: usr/local/bin/on-boot.sh
+  pkg/dropbear-aa37404/rules/96-dropbear.rules: dev/udev/rules.d/96-dropbear.rules
 
 symlinks:
   sbin/xtables-multi: sbin/iptables
