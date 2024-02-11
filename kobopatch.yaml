@@ -39,6 +39,7 @@ overrides:
     Never show Kobo Plus, wishlist, and points SmartLinks: yes
     Remove beta features not supported text: yes
     Remove line from bottom tab bar: yes
+    Remove title from reading header/footer: yes
     FeatureSettings - BookSpecificStats: yes
     FeatureSettings - MyWords: yes
     FeatureSettings - ExportHighlights: yes
@@ -71,8 +72,10 @@ files:
   config/nickel/menu.png: mnt/onboard/.adds/nm/.menu.png
   pkg/nickelmenu-749483b/libnm.so: usr/local/Kobo/imageformats/libnm.so
 
-  # NickelSeries
-  pkg/nickelseries-a06f1ac/libns.so: usr/local/Kobo/imageformats/libns.so
+  # NickelClock
+  config/clock/settings.ini: mnt/onboard/.adds/nickelclock/settings.ini
+  config/clock/uninstall: mnt/onboard/.adds/nickelclock/uninstall
+  pkg/nickelclock-0c8588b/libnickelclock.so: usr/local/Kobo/imageformats/libnickelclock.so
 
   # Tailscale
   pkg/tailscale-373914f/modules/tun.ko: lib/modules/tailscale/kernel/drivers/net/tun.ko
