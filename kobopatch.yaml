@@ -93,8 +93,8 @@ files:
 
   # Dropbear
   pkg/dropbear-aa37404/bin/dropbear: usr/bin/dropbear
-  pkg/dropbear-aa37404/scripts/boot.sh: usr/local/bin/boot.sh
-  pkg/dropbear-aa37404/scripts/on-boot.sh: usr/local/bin/on-boot.sh
+  pkg/dropbear-aa37404/scripts/boot.sh: usr/local/dropbear/boot.sh
+  pkg/dropbear-aa37404/scripts/on-boot.sh: usr/local/dropbear/on-boot.sh
   pkg/dropbear-aa37404/rules/96-dropbear.rules: dev/udev/rules.d/96-dropbear.rules
 
 symlinks:

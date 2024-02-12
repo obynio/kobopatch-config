@@ -19,7 +19,7 @@ if [[ $? -eq 143 ]]; then
 fi
 
 case "$(pidof tailscaled | wc -w)" in
-0) tailscaled --statedir=/mnt/onboard/.adds/tailscale &> /var/log/tailscaled.log &
+0) tailscaled --statedir=/mnt/onboard/.adds/tailscale &> /root/tailscaled.log &
    ;;
 esac
 
