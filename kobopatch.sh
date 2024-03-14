@@ -5,8 +5,8 @@ cd "$(dirname "$0")"
 if [ ! -f src/tailscale-${TAILSCALE_VERSION}-arm.tgz ]; then
     echo "Downloading tailscale_${TAILSCALE_VERSION}_arm.tgz from pkgs.tailscale.com ..."
     curl --progress-bar -o src/tailscale-${TAILSCALE_VERSION}-arm.tgz https://pkgs.tailscale.com/stable/tailscale_${TAILSCALE_VERSION}_arm.tgz
-    tar -xvf src/tailscale-${TAILSCALE_VERSION}-arm.tgz -C src
     rm -f "src/tailscale"
+    tar -xvf src/tailscale-${TAILSCALE_VERSION}-arm.tgz -C src
     mv src/tailscale_${TAILSCALE_VERSION}_arm src/tailscale
 fi
 
