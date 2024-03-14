@@ -1,10 +1,10 @@
 #!/bin/bash
-export TAILSCALE_VERSION=1.58.2
+export TAILSCALE_VERSION=1.62.0
 
 cd "$(dirname "$0")"
 if [ ! -f src/tailscale-${TAILSCALE_VERSION}-arm.tgz ]; then
     echo "Downloading tailscale_${TAILSCALE_VERSION}_arm.tgz from pkgs.tailscale.com ..."
-    wget https://pkgs.tailscale.com/stable/tailscale_${TAILSCALE_VERSION}_arm.tgz -O src/tailscale-${TAILSCALE_VERSION}-arm.tgz
+    curl --progress-bar -o src/tailscale-${TAILSCALE_VERSION}-arm.tgz https://pkgs.tailscale.com/stable/tailscale_${TAILSCALE_VERSION}_arm.tgz
     tar -xvf src/tailscale-${TAILSCALE_VERSION}-arm.tgz -C src
     rm -f "src/tailscale"
     mv src/tailscale_${TAILSCALE_VERSION}_arm src/tailscale
