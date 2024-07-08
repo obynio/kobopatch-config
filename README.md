@@ -13,6 +13,10 @@ Hey fellow space cowboy. You're probably here because you want to remove all thi
 4. Run `./kobopatch.sh`.
 5. Move the `KoboRoot.tgz` to the `.kobo` folder on your kobo and trigger the update.
 
+## Effects to investigate
+
+* When assigning `affiliate=RakutenBooks` in `affiliate.conf` you can manage to skip the affiliate logo on bootscreen and skip firmware upgrades.
+
 ## Includes
 
 On top of the firmware tweaks, the image also contains these mods:
