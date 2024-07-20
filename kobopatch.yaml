@@ -33,9 +33,9 @@ overrides:
     Increase Book Details synopsis area: yes
   src/libadobe.so.yaml:
   src/libnickel.so.1.0.0.yaml:
-    # Block WiFi firmware upgrade: yes
+    Block WiFi firmware upgrade: yes
     Custom kepub default margins: yes
-    Always show confirmation dialog before upgrading: yes
+    # Always show confirmation dialog before upgrading: yes
     Disable all tutorial dialogs: yes
     Never show Kobo Plus, wishlist, and points SmartLinks: yes
     Remove beta features not supported text: yes

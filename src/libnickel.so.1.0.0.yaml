@@ -290,6 +290,9 @@ Block WiFi firmware upgrade:
   - FindReplaceString:
       Find:    "UpgradeCheck/%1/%2/%3/%4/%5"
       Replace: "UpgradeCheck/%1/%2/k/99.9/5"
+  - FindReplaceString:
+      Find: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/%3/%4/%5"
+      Replace: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/k/99.9/5"
 
 Custom Sleep/Power-off timeouts:
   - Enabled: no
