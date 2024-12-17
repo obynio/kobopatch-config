@@ -1,5 +1,12 @@
 #!/bin/sh
 
+# udev kills slow scripts
+if [ "$SETSID" != "1" ]
+then
+    SETSID=1 setsid "$0" "$@" &
+    exit
+fi
+
 # Make sure to load the TUN kernel module and create the /dev/net/tun device
 if ! lsmod | grep -q "^tun"; then
   insmod /lib/modules/tailscale/kernel/drivers/net/tun.ko

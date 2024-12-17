@@ -278,7 +278,7 @@ Custom header/footer captions:
         This patch allows you to change various header/footer caption attributes:
         - font-family (Part 1)
         - font-size & vertical position fine-tuning (Part 2)
-        - width (Part 3)
+        - width (Part 3)q
         Header & footer will automatically be a matched pair. 
         Parts 1 & 2: Full details & screenshots at 
         https://www.mobileread.com/forums/showpost.php?p=3897175&postcount=4
