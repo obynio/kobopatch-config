@@ -110,10 +110,10 @@ My 24 line spacing values:
     # 24 replacement line spacing values: change these replace_float values to suit
     # your device and preferences:
   - BaseAddress:  {Sym: "ReadingSettings::lineHeightScalars() const", Rel: 112} # beginning of new table from above
-  - ReplaceFloat: {Offset:   0, Find: 1.0, Replace: 0.75}
-  - ReplaceFloat: {Offset:   8, Find: 1.0, Replace: 0.78}
-  - ReplaceFloat: {Offset:  16, Find: 1.0, Replace: 0.8}
-  - ReplaceFloat: {Offset:  24, Find: 1.0, Replace: 0.82}
+  - ReplaceFloat: {Offset:   0, Find: 1.0, Replace: 0.7}
+  - ReplaceFloat: {Offset:   8, Find: 1.0, Replace: 0.73}
+  - ReplaceFloat: {Offset:  16, Find: 1.0, Replace: 0.76}
+  - ReplaceFloat: {Offset:  24, Find: 1.0, Replace: 0.8}
   - ReplaceFloat: {Offset:  32, Find: 1.0, Replace: 0.84}
   - ReplaceFloat: {Offset:  40, Find: 1.0, Replace: 0.86}
   - ReplaceFloat: {Offset:  48, Find: 1.0, Replace: 0.88}
@@ -287,9 +287,6 @@ Block WiFi firmware upgrade:
       REMOVE THIS PATCH BEFORE USING EITHER OF THOSE OPTIONS.
       A factory reset invoked using the hardware methods (such as holding down the
       light button while switching on) should not be affected.
-  - FindReplaceString:
-      Find:    "UpgradeCheck/%1/%2/%3/%4/%5"
-      Replace: "UpgradeCheck/%1/%2/k/99.9/5"
   - FindReplaceString:
       Find: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/%3/%4/%5"
       Replace: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/k/99.9/5"
@@ -536,10 +533,10 @@ Dictionary text font-family/font-size/line-height:
   #- ReplaceString: {Offset: 54, Find: "%4, serif       ",       Replace: "'AR UDJingxihei'",       MustMatchLength: yes}
 
   # Un-comment and edit next line to change font-size
-  #- ReplaceString: {Offset: 16, Find: "%1px", Replace: "32px", MustMatchLength: yes}
+  - ReplaceString: {Offset: 16, Find: "%1px", Replace: "42px", MustMatchLength: yes}
 
   # Un-comment and edit next line to change line spacing
-  #- ReplaceString: {Offset: 34, Find: "1.40em", Replace: "1.30em", MustMatchLength: yes}
+  - ReplaceString: {Offset: 34, Find: "1.40em", Replace: "1.10em", MustMatchLength: yes}
 
 
 Custom navigation menu page number text:
@@ -1221,7 +1218,7 @@ Don't uppercase header/footer text:
   # not need to add a mov instruction and NOP the destructor):
   - ReplaceBytes:
       Base:            "ReadingView::getChapterTitle()"
-      Offset:          282
+      Offset:          298
       FindInstBLX:     {SymPLT: "QString::toUpper() const"}
       ReplaceInstBLX:  {SymPLT: "QString::trimmed() const"}
   - ReplaceBytes:
@@ -1247,7 +1244,7 @@ Don't uppercase header/footer text and change page number text:
   - PatchGroup: Header/footer page number text
   - ReplaceBytes:
       Base:            "ReadingView::getChapterTitle()"
-      Offset:          282
+      Offset:          298
       FindInstBLX:     {SymPLT: "QString::toUpper() const"}
       ReplaceInstBLX:  {SymPLT: "QString::trimmed() const"}
   - ReplaceBytes:
@@ -1327,7 +1324,7 @@ Customize ComfortLight settings:
   # In an unnamed subroutine two layers into FrontLightPopupController::loadView
   # (find it by going back from QTime::addSecs), the times for the dropdown are
   # generated into a QVector<QPair<QString, QTime>> with a simple loop.
-  - BaseAddress: 0xE82E2C # find the base of the unnamed subroutine with the x-ref to _ZN5QTimeC1Eiiii
+  - BaseAddress: 0xE8996C # find the base of the unnamed subroutine with the x-ref to _ZN5QTimeC1Eiiii
   #
   # Change the initial hour / first bedtime dropdown item passed to the QTime
   # constructor (mov r1, #21):
