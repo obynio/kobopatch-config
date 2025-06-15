@@ -3,3 +3,5 @@ KoboRoot.tgz
 kobo*-update-*.zip
 tailscale-*.tgz
 src/tailscale
+**/.DS_Store
+

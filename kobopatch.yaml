@@ -1,5 +1,5 @@
 ## Works with kobopatch v0.15.0 and later.
-## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
+## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases.
 version: 4.38.23171
 in: src/kobo-update-4.38.23171-device.zip
 out: out/KoboRoot.tgz
@@ -14,7 +14,7 @@ patches:
   src/librmsdk.so.1.0.0.yaml: usr/local/Kobo/librmsdk.so.1.0.0
 
 ## You can put lines in the following section to override the enabled state of patches.
-## The indentation matters! Each override should be indented by 4 spaces. Add to the 
+## The indentation matters! Each override should be indented by 4 spaces. Add to the
 ## section below. This section can be copy and pasted into newer patch versions to
 ## keep your selections.
 ##
@@ -29,21 +29,17 @@ overrides:
   src/nickel.yaml:
     Remove footer (row3) and increase cover size on new home screen: yes
     Remove forgot pin button from lock screen: yes
-    New home screen subtitle custom font: yes
-    Increase Book Details synopsis area: yes
+    # New home screen subtitle custom font: yes
   src/libadobe.so.yaml:
   src/libnickel.so.1.0.0.yaml:
     Block WiFi firmware upgrade: yes
-    Custom kepub default margins: yes
+    # Custom kepub default margins: yes
     # Always show confirmation dialog before upgrading: yes
     Disable all tutorial dialogs: yes
     Never show Kobo Plus, wishlist, and points SmartLinks: yes
     Remove beta features not supported text: yes
     Remove line from bottom tab bar: yes
     Remove title from reading header/footer: yes
-    FeatureSettings - BookSpecificStats: yes
-    FeatureSettings - MyWords: yes
-    FeatureSettings - ExportHighlights: yes
   src/librmsdk.so.1.0.0.yaml:
 
 files:
@@ -97,6 +93,12 @@ files:
   pkg/dropbear-aa37404/scripts/boot.sh: usr/local/dropbear/boot.sh
   pkg/dropbear-aa37404/scripts/on-boot.sh: usr/local/dropbear/on-boot.sh
   pkg/dropbear-aa37404/rules/96-dropbear.rules: etc/udev/rules.d/96-dropbear.rules
+
+  # NickelDBus
+  pkg/nickeldbus-f3a8c18/etc/dbus-1/system.d/com-github-shermp-nickeldbus.conf: etc/dbus-1/system.d/com-github-shermp-nickeldbus.conf
+  pkg/nickeldbus-f3a8c18/mnt/onboard/.adds/nickeldbus: mnt/onboard/.adds/nickeldbus
+  pkg/nickeldbus-f3a8c18/usr/bin/qndb: usr/bin/qndb
+  pkg/nickeldbus-f3a8c18/usr/local/Kobo/imageformats/libndb.so: usr/local/Kobo/imageformats/libndb.so
 
 symlinks:
   sbin/xtables-multi: sbin/iptables
