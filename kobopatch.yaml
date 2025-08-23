@@ -1,7 +1,7 @@
 ## Works with kobopatch v0.15.0 and later.
 ## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases.
 version: 4.38.23171
-in: src/kobo-update-4.38.23171-device.zip
+in: src/kobo-update-4.38.23171-clara2e.zip
 out: out/KoboRoot.tgz
 log: out/log.txt
 
@@ -29,12 +29,9 @@ overrides:
   src/nickel.yaml:
     Remove footer (row3) and increase cover size on new home screen: yes
     Remove forgot pin button from lock screen: yes
-    # New home screen subtitle custom font: yes
   src/libadobe.so.yaml:
   src/libnickel.so.1.0.0.yaml:
     Block WiFi firmware upgrade: yes
-    # Custom kepub default margins: yes
-    # Always show confirmation dialog before upgrading: yes
     Disable all tutorial dialogs: yes
     Never show Kobo Plus, wishlist, and points SmartLinks: yes
     Remove beta features not supported text: yes
@@ -68,11 +65,6 @@ files:
   config/nickel/config: mnt/onboard/.adds/nm/config
   config/nickel/menu.png: mnt/onboard/.adds/nm/.menu.png
   pkg/nickelmenu-749483b/libnm.so: usr/local/Kobo/imageformats/libnm.so
-
-  # NickelClock
-  config/clock/settings.ini: mnt/onboard/.adds/nickelclock/settings.ini
-  config/clock/uninstall: mnt/onboard/.adds/nickelclock/uninstall
-  pkg/nickelclock-0c8588b/libnickelclock.so: usr/local/Kobo/imageformats/libnickelclock.so
 
   # Tailscale
   pkg/tailscale-373914f/modules/tun.ko: lib/modules/tailscale/kernel/drivers/net/tun.ko
