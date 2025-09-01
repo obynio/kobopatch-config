@@ -1,5 +1,4 @@
 # Main
-menu_item    :main    :Pocket        :nickel_open    :library              :pocket
 menu_item    :main    :Activity      :nickel_open    :reading_life         :stats
 menu_item    :main    :Wi-Fi         :nickel_setting :toggle               :force_wifi
 menu_item    :main    :Mount         :nickel_misc    :force_usb_connection
