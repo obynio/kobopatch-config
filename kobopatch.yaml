@@ -1,7 +1,7 @@
 ## Works with kobopatch v0.15.0 and later.
-## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases.
+## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
 version: 4.38.23684
-in: src/kobo-update-4.38.23684-device.zip
+in: src/kobo-update-4.38.23684-libra2.zip
 out: out/KoboRoot.tgz
 log: out/log.txt
 
@@ -9,26 +9,26 @@ patchFormat: kobopatch
 
 patches:
   src/nickel.yaml: usr/local/Kobo/nickel
+  src/nickel_custom.yaml: usr/local/Kobo/nickel
   src/libadobe.so.yaml: usr/local/Kobo/libadobe.so
   src/libnickel.so.1.0.0.yaml: usr/local/Kobo/libnickel.so.1.0.0
   src/librmsdk.so.1.0.0.yaml: usr/local/Kobo/librmsdk.so.1.0.0
-
+  
 ## You can put lines in the following section to override the enabled state of patches.
-## The indentation matters! Each override should be indented by 4 spaces. Add to the
+## The indentation matters! Each override should be indented by 4 spaces. Add to the 
 ## section below. This section can be copy and pasted into newer patch versions to
 ## keep your selections.
 ##
 ## Example of how it should look:
 ## overrides:
 ##   src/nickel.yaml:
-##     Custom synopsis/details line spacing: yes
+##     Custom synopsis/details line spacing: no
 ##     Whatever the yaml is called: no
 ##   src/libadobe.so.yaml:
-##     You get the idea: yes
+##     You get the idea: no
 overrides:
   src/nickel.yaml:
     Remove footer (row3) and increase cover size on new home screen: yes
-  src/libadobe.so.yaml:
   src/libnickel.so.1.0.0.yaml:
     Block WiFi firmware upgrade: yes
     Disable all tutorial dialogs: yes
@@ -36,7 +36,6 @@ overrides:
     Remove beta features not supported text: yes
     Remove line from bottom tab bar: yes
     Remove title from reading header/footer: yes
-  src/librmsdk.so.1.0.0.yaml:
 
 files:
   # Fonts
@@ -63,7 +62,7 @@ files:
   # NickelMenu
   config/nickel/config: mnt/onboard/.adds/nm/config
   config/nickel/menu.png: mnt/onboard/.adds/nm/.menu.png
-  pkg/nickelmenu-749483b/libnm.so: usr/local/Kobo/imageformats/libnm.so
+  pkg/nickelmenu-15a95f7/libnm.so: usr/local/Kobo/imageformats/libnm.so
 
   # Tailscale
   pkg/tailscale-373914f/modules/tun.ko: lib/modules/tailscale/kernel/drivers/net/tun.ko
@@ -91,6 +90,11 @@ files:
   pkg/nickeldbus-f3a8c18/usr/bin/qndb: usr/bin/qndb
   pkg/nickeldbus-f3a8c18/usr/local/Kobo/imageformats/libndb.so: usr/local/Kobo/imageformats/libndb.so
 
+  # Tweaks
+  config/tweaks/settings.ini: mnt/onboard/.adds/tweaks/settings.ini
+  config/tweaks/uninstall.txt: mnt/onboard/.adds/tweaks/delete_to_uninstall.txt
+  pkg/tweaks-4e381cf/usr/local/Kobo/imageformats/libtweaks.so: usr/local/Kobo/imageformats/libtweaks.so
+
 symlinks:
   sbin/xtables-multi: sbin/iptables
   lib/libip4tc.so.0.1.0: lib/libip4tc.so.0
@@ -98,5 +102,3 @@ symlinks:
   lib/libxtables.so.10.0.0: lib/libxtables.so.10
   mnt/onboard/.adds/tailscale/tailscale: usr/bin/tailscale
   mnt/onboard/.adds/tailscale/tailscaled: usr/bin/tailscaled
-
-  # mnt/onboard/.adds/nm/config: usr/local/confiture
