@@ -7,6 +7,17 @@
 # avoid those problems, or else simply refrain from selecting narrowest
 # line spacings when reading KePubs.
 
+test Pop-up footnote main text font-size:
+  - Enabled: no
+  - Description: |
+        Change pop-up footnote main text font-size
+        fw 4.20.14601 CSS moved to libnickel.so.1.0.0 from nickel???
+        Daylight: %1 = 42 ???
+  - FindReplaceString:
+      Find:    "p { font-size: %1px; line-height: 1.4em; }"
+      Replace: "p { font-size: 34px; line-height: 1.4em; }"
+      MustMatchLength: yes
+
 My 10 line spacing values:
   - Enabled: no
   - PatchGroup: Line spacing values alternatives
@@ -288,8 +299,8 @@ Block WiFi firmware upgrade:
       A factory reset invoked using the hardware methods (such as holding down the
       light button while switching on) should not be affected.
   - FindReplaceString:
-      Find: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/%3/%4/%5"
-      Replace: "https://api.kobobooks.com/1.0/UpgradeCheck/%1/%2/k/99.9/5"
+      Find:    "UpgradeCheck/%1/%2/%3/%4/%5"
+      Replace: "UpgradeCheck/%1/%2/k/99.9/5"
 
 Custom Sleep/Power-off timeouts:
   - Enabled: no
@@ -428,19 +439,19 @@ Un-Force user font-family in KePubs:
     # Alternative 1:
     #     * { font-family: %1 !important; }\n
     # --> div,p{font-family:%1!important; }\n
-  - ReplaceString:
-      Find: "* { font-family: %1 !important; }\n"
-      Replace: "div,p{font-family:%1!important; }\n"
-      MustMatchLength: yes
+#  - ReplaceString:
+#      Find: "* { font-family: %1 !important; }\n"
+#      Replace: "div,p{font-family:%1!important; }\n"
+#      MustMatchLength: yes
     #
     # Alternative 2: (Similar to ePub default)
     #     * { font-family: %1 !important; }\n
     # --> body,p{font-family:%1!important;}\n
-# - ReplaceString:
-#     Offset: 0
-#     Find: "* { font-family: %1 !important; }\n"
-#     Replace: "body,p{font-family:%1!important;}\n"
-#     MustMatchLength: yes
+  - ReplaceString:
+      Offset: 0
+      Find: "* { font-family: %1 !important; }\n"
+      Replace: "body,p{font-family:%1!important;}\n"
+      MustMatchLength: yes
     #
     # Alternative 3: (similar to ePub with `Un-force font-family override p tags`)
     #     * { font-family: %1 !important; }\n
@@ -1324,7 +1335,7 @@ Customize ComfortLight settings:
   # In an unnamed subroutine two layers into FrontLightPopupController::loadView
   # (find it by going back from QTime::addSecs), the times for the dropdown are
   # generated into a QVector<QPair<QString, QTime>> with a simple loop.
-  - BaseAddress: 0xE8996C # find the base of the unnamed subroutine with the x-ref to _ZN5QTimeC1Eiiii
+  - BaseAddress: 0xE9C9B4 # find the base of the unnamed subroutine with the x-ref to _ZN5QTimeC1Eiiii
   #
   # Change the initial hour / first bedtime dropdown item passed to the QTime
   # constructor (mov r1, #21):
