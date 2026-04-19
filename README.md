@@ -3,10 +3,8 @@
 
 Hey fellow space cowboy. You're probably here because you want to remove all this ugly adware from your kobo and get a clean kobo experience ? Fear no more. This repository contains my configuration to tweak the kobo e-reader firmware to my liking. To update kobopatch, you can download the binaries [here](https://github.com/pgaskin/kobopatch/releases/latest).
 
-<img width="300" src="https://github.com/user-attachments/assets/2b1134aa-c30b-4990-a4d3-3f61e0b7e414" alt="kobo patches">
-<img width="300" src="https://github.com/user-attachments/assets/74de18e9-dcfd-486d-b28b-09d70f11db3f" alt="kobo tweaks">
-
-<img width="1072" height="1448" alt="kobo_tweaks" src="" />
+<img width="400" src="https://github.com/user-attachments/assets/8e599878-6fb3-4e97-8911-9122d1c19f84" alt="kobo patches">
+<img width="400" src="https://github.com/user-attachments/assets/bba85f9a-6029-4dff-ac9f-0a1d21a1c18c" alt="kobo tweaks">
 
 ## How to use
 
@@ -50,7 +48,5 @@ The custom bookmark might not work if it's too big. It's recommended to use dime
 
 ### Avoid images in the kobo library
 
-In the `[FeatureSettings]` section, replace the line that starts with `ExcludeSyncFolders=` with the following (insert it if not found):
-```
-ExcludeSyncFolders=(\\.(?!kobo|adobe).+|([^.][^/]*/)+\\..+)
-```
+In the `[FeatureSettings]` section, add or edit the line with the following
+`ExcludeSyncFolders=(\\.(?!kobo|adobe).+|([^.][^/]*/)+\\..+)`
