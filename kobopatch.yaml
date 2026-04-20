@@ -1,7 +1,7 @@
 ## Works with kobopatch v0.15.0 and later.
 ## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
 version: 4.38.23684
-in: src/kobo-update-4.38.23684-libra2.zip
+in: src/kobo-update-4.38.23684-device.zip
 out: out/KoboRoot.tgz
 log: out/log.txt
 
@@ -79,10 +79,10 @@ files:
   pkg/tailscale-373914f/rules/98-tailscale.rules: etc/udev/rules.d/98-tailscale.rules
 
   # Dropbear
-  pkg/dropbear-aa37404/bin/dropbear: usr/bin/dropbear
-  pkg/dropbear-aa37404/scripts/boot.sh: usr/local/dropbear/boot.sh
-  pkg/dropbear-aa37404/scripts/on-boot.sh: usr/local/dropbear/on-boot.sh
-  pkg/dropbear-aa37404/rules/96-dropbear.rules: etc/udev/rules.d/96-dropbear.rules
+  pkg/dropbear-8b57957/bin/dropbear: usr/bin/dropbear
+  pkg/dropbear-8b57957/scripts/boot.sh: usr/local/dropbear/boot.sh
+  pkg/dropbear-8b57957/scripts/on-boot.sh: usr/local/dropbear/on-boot.sh
+  pkg/dropbear-8b57957/rules/96-dropbear.rules: etc/udev/rules.d/96-dropbear.rules
 
   # NickelDBus
   pkg/nickeldbus-f3a8c18/etc/dbus-1/system.d/com-github-shermp-nickeldbus.conf: etc/dbus-1/system.d/com-github-shermp-nickeldbus.conf
