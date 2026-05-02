@@ -34,6 +34,14 @@ On top of the firmware tweaks, the image also contains these mods:
 
 ## Tips
 
+### Why KEPUB matters
+
+The engine Kobo uses for regular EPUBs is from Adobe*, called the RMSDK. Unfortunately Kobo use a very old version of it and presumably aren’t updating it so that you use their KEPUB engine instead, which is based on WebKit and gets updated.
+
+So probably you’re hitting a bug in RMSDK that may have been fixed since that RMSDK release, but Kobo will never update it so…
+
+Actually Adobe sold their EPUB business (including RMSDK) last year, and the buyer promptly sold it on to an Indian company. I’m pretty sure it is dead. So maybe Kobo was right to implement an alternate engine!
+
 ### Bookmark size matching
 
 The custom bookmark might not work if it's too big. It's recommended to use dimensions similar to the original. Below are the dimensions of Kobo's default bookmark image.
