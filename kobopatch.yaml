@@ -1,7 +1,7 @@
 ## Works with kobopatch v0.15.0 and later.
-## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases. 
-version: 4.38.23684
-in: src/kobo-update-4.38.23684-device.zip
+## You can update kobopatch by downloading the latest release from https://github.com/pgaskin/kobopatch/releases.
+version: 4.38.23697
+in: src/kobo-update-4.38.23697-libra2.zip
 out: out/KoboRoot.tgz
 log: out/log.txt
 
@@ -13,9 +13,9 @@ patches:
   src/libadobe.so.yaml: usr/local/Kobo/libadobe.so
   src/libnickel.so.1.0.0.yaml: usr/local/Kobo/libnickel.so.1.0.0
   src/librmsdk.so.1.0.0.yaml: usr/local/Kobo/librmsdk.so.1.0.0
-  
+
 ## You can put lines in the following section to override the enabled state of patches.
-## The indentation matters! Each override should be indented by 4 spaces. Add to the 
+## The indentation matters! Each override should be indented by 4 spaces. Add to the
 ## section below. This section can be copy and pasted into newer patch versions to
 ## keep your selections.
 ##
