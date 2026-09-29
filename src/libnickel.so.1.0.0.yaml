@@ -815,12 +815,11 @@ Don't grab exclusive access to event0:
 
 Both page turn buttons go next:
   - Enabled: no
-  - Description: Make both page turn buttons on the Forma go next in the reader.
+  - BaseAddress: {Sym: "_ZN11ReadingView13keyPressEventEP9QKeyEvent"}
   - ReplaceBytes:
-      Base:          "ReadingView::keyPressEvent(QKeyEvent*)"
-      Offset:        82
-      FindInstBW:    {SymPLTTail: "ReadingView::prevPageWithTimer()"}
-      ReplaceInstBW: {SymPLTTail: "ReadingView::nextPageWithTimer()"}
+      Offset: 0x3C
+      FindH:  68 B9
+      ReplaceH: 0D E0
 
 Both page turn sides go next:
   - Enabled: no
@@ -1101,13 +1100,11 @@ Never show Kobo Plus, wishlist, and points SmartLinks:
   - ReplaceBytes: {Offset: 310, FindH: 02 23, CheckOnly: true} # MOVS r3, #2
   - ReplaceBytes: {Offset: 320, FindInstBLX: {SymPLT: "QVector<SmartLinkType>::append(SmartLinkType const&)"}, ReplaceInstNOP: true}
   # NOP wishlist (14):
-  - ReplaceBytes: {Offset: 284, FindH: 0E 23, CheckOnly: true} # MOVS r3, #14
-  - ReplaceBytes: {Offset: 294, FindInstBLX: {SymPLT: "QVector<SmartLinkType>::append(SmartLinkType const&)"}, ReplaceInstNOP: true}
+  - ReplaceBytes: {Offset: 218, FindH: 0E 23, CheckOnly: true} # MOVS r3, #14
+  - ReplaceBytes: {Offset: 228, FindInstBLX: {SymPLT: "QVector<SmartLinkType>::append(SmartLinkType const&)"}, ReplaceInstNOP: true}
   # NOP super points (17):
-  - ReplaceBytes: {Offset: 1514, FindH: 11 23, CheckOnly: true} # MOVS r3, #17
-  - ReplaceBytes: {Offset: 1526, FindInstBLX: {SymPLT: "QVector<SmartLinkType>::append(SmartLinkType const&)"}, ReplaceInstNOP: true}
-
-###
+  - ReplaceBytes: {Offset: 430, FindH: 11 23, CheckOnly: true} # MOVS r3, #17
+  - ReplaceBytes: {Offset: 440, FindInstBLX: {SymPLT: "QVector<SmartLinkType>::append(SmartLinkType const&)"}, ReplaceInstNOP: true}
 
 # Note: The "Increase TOC level indentation" and "Increase TOC level indentation
 # and fix extra indentation bug" patches are not necessary anymore in firmware
@@ -1453,3 +1450,87 @@ Unify font sizes:
       FindInstBLX: {SymPLT: "QScreen::logicalDotsPerInchX() const"}
       ReplaceH:    B3 EE 00 0B # vmov.f64 d0, #16.0
 
+Disable forward/backward swipe Gestures:
+  - Enabled: no
+  - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
+  - ReplaceBytes:
+      Offset: 0xE8
+      FindH: 1D F7 28 CC 
+      ReplaceH: 00 BF 00 BF
+  - ReplaceBytes:
+      Offset: 0xF6
+      FindH: 1A F7 F0 C8 
+      ReplaceH: 00 BF 00 BF
+
+Disable menu swipe gesture:
+  - Enabled: no
+  - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
+  - ReplaceBytes:
+      Offset: 0x134
+      FindH: 3F F7 E6 CA 
+      ReplaceH: 00 BF 00 BF
+  - ReplaceBytes:
+      Offset: 0x13c
+      FindH: 12 F7 A2 CB 
+      ReplaceH: 00 BF 00 BF
+
+Turn off the big Kobo Plus popup:
+  - Enabled: no
+  - Description: |
+      Stops the full-screen "Kobo Plus" ad that can appear when waking
+      the device up or going back to the home screen.
+  - BaseAddress: "HomePageController::maybeShowKoboPlusPromo()"
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, ReplaceH: 00 20 70 47}
+
+Turn off the Kobo Plus ad when buying a book (part 1):
+  - Enabled: no
+  - Description: |
+      Stops the Kobo Plus upsell that can appear during checkout when
+      buying a book. Buying books normally still works.
+  - BaseAddress: "BuyBookActionProxy::allowKoboPlusPromo() const"
+  - ReplaceBytes: {Offset: 0, FindH: 80 B4 00 AF, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 80 B4 00 AF, ReplaceH: 00 20 70 47}
+
+Turn off the Kobo Plus ad when buying a book (part 2):
+  - Enabled: no
+  - Description: |
+      A second piece of the above which controls the promotional label 
+      rather than the popup itself.
+  - BaseAddress: "BuyBookActionProxy::promoteKoboPlus() const"
+  - ReplaceBytes: {Offset: 0, FindH: 90 B5 83 B0, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 90 B5 83 B0, ReplaceH: 00 20 70 47}
+
+Hide the Kobo Plus subscription tile:
+  - Enabled: no
+  - Description: |
+      Removes the special "subscribe to Kobo Plus" tile from library/home screen.
+  - BaseAddress: "TabManager::isSubsPromoPlaceholder(Tab const&)"
+  - ReplaceBytes: {Offset: 0, FindH: 0C 4A 98 B5, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 0C 4A 98 B5, ReplaceH: 00 20 70 47}
+
+Turn off the "your library got better" popup:
+  - Enabled: no
+  - Description: |
+      Stops the dialog that displays "library previews were upgraded 
+      because of Kobo Plus".
+  - BaseAddress: "DragonLibraryView::showKoboPlusUpgradedPreviewsDialog()"
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, ReplaceH: 00 20 70 47}
+
+Turn off the Kobo Plus popup in the Wishlist:
+  - Enabled: no
+  - Description: |
+      Stops the Kobo Plus ad dialog that can appear when opening the Wishlist.
+  - BaseAddress: "WishlistView::showKoboPlusWishlistViewDialog()"
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, ReplaceH: 00 20 70 47}
+
+Mark the Kobo Plus upgrade banner as already seen:
+  - Enabled: no
+  - Description: |
+      Tries to stop a Kobo Plus banner by making the device think it's already seen it.
+  - BaseAddress: "DialogSettings::koboPlusUpgradeBannerShown()"
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 41, CheckOnly: true}
+  - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 41, ReplaceH: 01 20 70 47}
+  
