@@ -1451,27 +1451,27 @@ Unify font sizes:
       ReplaceH:    B3 EE 00 0B # vmov.f64 d0, #16.0
 
 Disable forward/backward swipe Gestures:
-  - Enabled: no
+  - Enabled: yes
   - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
   - ReplaceBytes:
       Offset: 0xE8
-      FindH: 1D F7 28 CC 
+      FindH: 18 F7 8E CF 
       ReplaceH: 00 BF 00 BF
   - ReplaceBytes:
       Offset: 0xF6
-      FindH: 1A F7 F0 C8 
+      FindH: 15 F7 46 CC 
       ReplaceH: 00 BF 00 BF
 
 Disable menu swipe gesture:
-  - Enabled: no
+  - Enabled: yes
   - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
   - ReplaceBytes:
       Offset: 0x134
-      FindH: 3F F7 E6 CA 
+      FindH: 3A F7 DA CE 
       ReplaceH: 00 BF 00 BF
   - ReplaceBytes:
       Offset: 0x13c
-      FindH: 12 F7 A2 CB 
+      FindH: 0D F7 C0 CE 
       ReplaceH: 00 BF 00 BF
 
 Turn off the big Kobo Plus popup:

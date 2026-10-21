@@ -34,6 +34,28 @@ On top of the firmware tweaks, the image also contains these mods:
 
 ## Tips
 
+### Factory Reset
+
+You can force a full factory wipe to restore it on the initial firmware in the settings. In that case, you'll need to restore the following mods in order
+
+#### On initial firmware
+
+Kobo *appear* to have removed telnet in future versions, and SSH is not present so we need to add dropbear ourselves while we have root access...
+
+* Enable dev mode and restore Dropbear through telnet
+* Don't forget to use `dropbearkey` to generate the initial keypair
+* Verify you can connect through SSH and change root password
+
+#### On new firmware and mod
+
+* Tailscale login
+* Add the ExcludeSyncFolder setting
+* Copy the tweak image depending of your model
+
+### Oops this document couldn't be opened
+
+Probably due to the sync migration kobo did a few month ago, just delete and redownload the book so it comes with the new DRMs. You can attempt to repair the account as well to make sure it works.
+
 ### Why KEPUB matters
 
 The engine Kobo uses for regular EPUBs is from Adobe*, called the RMSDK. Unfortunately Kobo use a very old version of it and presumably aren’t updating it so that you use their KEPUB engine instead, which is based on WebKit and gets updated.

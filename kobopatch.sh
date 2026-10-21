@@ -1,5 +1,5 @@
 #!/bin/bash
-export TAILSCALE_VERSION=1.102.4
+export TAILSCALE_VERSION=1.104.2
 
 cd "$(dirname "$0")"
 if [ ! -f src/tailscale-${TAILSCALE_VERSION}-arm.tgz ]; then
