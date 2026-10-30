@@ -536,7 +536,7 @@ Dictionary text font-family/font-size/line-height:
 
   # N.B: From fw 4.32.19508 these are the only customised font-family values reported as having any effect
   #      The first example will use the default sans-serif font, i.e. Avenir for most non-CJK GUI language locales
-  
+
   # Un-comment ONE ONLY of the following 4 ReplaceString examples
   #- ReplaceString: {Offset: 54, Find: "%4, serif ",             Replace: "sans-serif",             MustMatchLength: yes}
   #- ReplaceString: {Offset: 54, Find: "%4, serif             ", Replace: "'KBJ-TsukuMin Pr6N RB'", MustMatchLength: yes}
@@ -575,8 +575,8 @@ KePub stylesheet additions - text justify:
 KePub stylesheet additions - word-spacing:
   - Enabled: no
   - PatchGroup: KePub stylesheet additions alternatives
-  - Description: | 
-        Reduces the space between words in KePubs. 
+  - Description: |
+        Reduces the space between words in KePubs.
         Probably only useful to those who prefer to read KePubs with left/right full justification, i.e. not ragged-right edge.
         See https://www.mobileread.com/forums/showpost.php?p=4217711&postcount=28
             for screenshots showing the effect of enabling this patch.
@@ -1428,7 +1428,7 @@ Unify font sizes:
     # DPI multiplication here seems to have a detrimental effect, and behaves
     # differently on different devices. This patch changes the 'scale_factor' to
     # 2.5, and replaces the call to get DPI with a constant multiplier (16).
-    # The results of using these values are equivalent to  
+    # The results of using these values are equivalent to
     # ( font_size / 15.0 ) * 96 which is what I suspect the kepub formula is.
     # Note, that the replacement values are limited to 0.25 - 31.0 in 0.25
     # increments.
@@ -1451,27 +1451,27 @@ Unify font sizes:
       ReplaceH:    B3 EE 00 0B # vmov.f64 d0, #16.0
 
 Disable forward/backward swipe Gestures:
-  - Enabled: yes
+  - Enabled: no
   - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
   - ReplaceBytes:
       Offset: 0xE8
-      FindH: 18 F7 8E CF 
+      FindH: 18 F7 8E CF
       ReplaceH: 00 BF 00 BF
   - ReplaceBytes:
       Offset: 0xF6
-      FindH: 15 F7 46 CC 
+      FindH: 15 F7 46 CC
       ReplaceH: 00 BF 00 BF
 
 Disable menu swipe gesture:
-  - Enabled: yes
+  - Enabled: no
   - BaseAddress: {Sym: "_ZN11ReadingView12processSwipeEP12SwipeGesture"}
   - ReplaceBytes:
       Offset: 0x134
-      FindH: 3A F7 DA CE 
+      FindH: 3A F7 DA CE
       ReplaceH: 00 BF 00 BF
   - ReplaceBytes:
       Offset: 0x13c
-      FindH: 0D F7 C0 CE 
+      FindH: 0D F7 C0 CE
       ReplaceH: 00 BF 00 BF
 
 Turn off the big Kobo Plus popup:
@@ -1495,7 +1495,7 @@ Turn off the Kobo Plus ad when buying a book (part 1):
 Turn off the Kobo Plus ad when buying a book (part 2):
   - Enabled: no
   - Description: |
-      A second piece of the above which controls the promotional label 
+      A second piece of the above which controls the promotional label
       rather than the popup itself.
   - BaseAddress: "BuyBookActionProxy::promoteKoboPlus() const"
   - ReplaceBytes: {Offset: 0, FindH: 90 B5 83 B0, CheckOnly: true}
@@ -1512,7 +1512,7 @@ Hide the Kobo Plus subscription tile:
 Turn off the "your library got better" popup:
   - Enabled: no
   - Description: |
-      Stops the dialog that displays "library previews were upgraded 
+      Stops the dialog that displays "library previews were upgraded
       because of Kobo Plus".
   - BaseAddress: "DragonLibraryView::showKoboPlusUpgradedPreviewsDialog()"
   - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 4F, CheckOnly: true}
@@ -1533,4 +1533,4 @@ Mark the Kobo Plus upgrade banner as already seen:
   - BaseAddress: "DialogSettings::koboPlusUpgradeBannerShown()"
   - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 41, CheckOnly: true}
   - ReplaceBytes: {Offset: 0, FindH: 2D E9 F0 41, ReplaceH: 01 20 70 47}
-  
+
